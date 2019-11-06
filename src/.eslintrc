@@ -1,0 +1,13 @@
+{
+    "rules": {
+        "max-len": "off",
+        "semi": [
+            "error",
+            "always"
+        ],
+        "quotes": [
+            "error",
+            "double"
+        ]
+    }
+}
