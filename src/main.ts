@@ -1,14 +1,29 @@
 import Vue from "vue";
+import ApolloClient from "apollo-boost";
+import { InMemoryCache } from "apollo-cache-inmemory";
+import VueApollo from "vue-apollo";
+
 import App from "./App.vue";
 import router from "./router";
 import store from "./store";
-import { createProvider } from "./vue-apollo";
 
 Vue.config.productionTip = false;
+
+Vue.use(VueApollo);
+
+
+const client = new ApolloClient({
+  cache: new InMemoryCache(),
+  uri: "http://localhost:8000/api",
+});
+
+const apolloProvider = new VueApollo({
+  defaultClient: client,
+});
 
 new Vue({
   router,
   store,
-  apolloProvider: createProvider(),
+  apolloProvider,
   render: h => h(App),
 }).$mount("#app");
