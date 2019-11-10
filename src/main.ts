@@ -14,7 +14,7 @@ Vue.use(VueApollo);
 
 const client = new ApolloClient({
   cache: new InMemoryCache(),
-  uri: "http://localhost:8000/api",
+  uri: `${process.env.VUE_APP_TAGEN_URL}/api`,
 });
 
 const apolloProvider = new VueApollo({

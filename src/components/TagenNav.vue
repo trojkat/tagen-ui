@@ -1,11 +1,11 @@
 <template>
 
-  <div class="uk-container uk-container-small">
+  <div class="uk-container uk-container">
     <nav id="main-menu" class="uk-margin" uk-navbar>
 
         <div class="uk-navbar-left">
             <a class="uk-navbar-item uk-logo" href="#/">
-              <img src="@/assets/logo-vertical.png" title="TAGEN.TV" alt="TAGEN.TV">
+              <img src="@/assets/img/logo-vertical.png" title="TAGEN.TV" alt="TAGEN.TV">
             </a>
         </div>
 
