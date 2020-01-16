@@ -14,9 +14,6 @@
 <script>
 export default {
   name: "TvStrip",
-  data: () => ({
-    tagenUrl: process.env.VUE_APP_TAGEN_URL,
-  }),
   methods: {
     season: () => {
       const now = new Date();
