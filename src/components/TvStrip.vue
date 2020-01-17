@@ -1,17 +1,21 @@
 <template>
 
   <div :class="`tv-strip uk-align-center uk-background-cover strip-${season()}-${timeOfDay()}`">
+    <span uk-spinner="ratio: 3" v-if="!$store.state.vod.randomVod"></span>
     <video
-      src="//stream.tagen.tv/2014/1/natura-zdrowia-cz-3.mp4"
-      poster="https://static.tagen.tv/media/vod_img/232_2.jpg"
+      :src="`${$appConfig.streamUrl}/${$store.state.vod.randomVod.video}`"
+      :poster="`${$appConfig.tagenUrl}${$store.state.vod.randomVod.coverUrl}`"
       class="uk-margin-auto"
       controls
+      v-if="$store.state.vod.randomVod"
       uk-video="autoplay: false"></video>
   </div>
 
 </template>
 
 <script>
+import { mapState } from "vuex";
+
 export default {
   name: "TvStrip",
   methods: {

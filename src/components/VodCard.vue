@@ -2,7 +2,9 @@
 
   <div :class="`uk-card uk-card-small uk-card-default uk-box-shadow-hover-xlarge uk-margin-small ${cls}`">
     <div class="uk-card-media-top">
-      <img :src="`${tagenUrl}${vod.coverUrl}`">
+      <a :href="`${$appConfig.tagenUrl}${vod.url}`">
+        <img :src="`${$appConfig.tagenUrl}${vod.coverUrl}`">
+      </a>
     </div>
     <div class="uk-card-body">
       {{ vod.title }}
@@ -18,8 +20,5 @@
 export default {
   name: "VodCard",
   props: ["vod", "cls"],
-  data: () => ({
-    tagenUrl: process.env.VUE_APP_TAGEN_URL,
-  }),
 };
 </script>

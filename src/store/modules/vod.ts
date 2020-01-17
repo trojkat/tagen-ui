@@ -23,20 +23,37 @@ const actions = {
         }
       `),
     });
-    commit("SET_LASTVODS", response.data.vods);
+    commit("SET_LAST_VODS", response.data.vods);
+  },
+  async getRandomVod({ commit }) {
+    const response = await apollo.query({
+      query: gql(`
+        query {
+          vod {
+            coverUrl,
+            video,
+          }
+        }
+      `),
+    });
+    commit("SET_RANDOM_VOD", response.data.vod);
   },
 };
 
 // mutations
 const mutations = {
-  SET_LASTVODS(state, lastVods) {
+  SET_LAST_VODS(state, lastVods) {
     state.lastVods = lastVods;
+  },
+  SET_RANDOM_VOD(state, vod) {
+    state.randomVod = vod;
   },
 };
 
 // initial state
 const state = {
-  lastVods: [],
+  lastVods: null,
+  randomVod: null,
 };
 
 

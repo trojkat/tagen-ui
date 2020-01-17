@@ -1,7 +1,14 @@
 <template>
-  <div class="uk-container uk-container-small">
-    <div class="vod">
-      <h1>VOD</h1>
-    </div>
-  </div>
+    <VodList :vodList="$store.state.vod.lastVods" title="Biblioteka Vod"/>
 </template>
+
+<script>
+import VodList from "@/components/VodList.vue";
+
+export default {
+  name: "Vod",
+  components: {
+    VodList,
+  },
+};
+</script>
