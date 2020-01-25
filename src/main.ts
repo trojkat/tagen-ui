@@ -9,7 +9,6 @@ import client from "./apolloClient";
 import config from "./config";
 
 Vue.prototype.$appConfig = config;
-console.log(config);
 Vue.config.productionTip = false;
 Vue.use(VueApollo);
 

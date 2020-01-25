@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <TopNav/>
     <TagenNav/>
     <router-view/>
     <Footer/>
@@ -12,12 +13,14 @@ import Icons from "uikit/dist/js/uikit-icons";
 
 import Footer from "@/components/Footer.vue";
 import TagenNav from "@/components/TagenNav.vue";
+import TopNav from "@/components/TopNav.vue";
 
 UIkit.use(Icons);
 
 export default {
   name: "home",
   components: {
+    TopNav,
     TagenNav,
     Footer,
   },
@@ -33,6 +36,6 @@ html, body {
   background: $prime-color;
 }
 #app {
-  background: #FFF;
+  background: #F8F8F0;
 }
 </style>

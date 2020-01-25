@@ -6,7 +6,7 @@ const getters = {};
 
 // actions
 const actions = {
-  async getLastVods({ commit }) {
+  async getLastVods(context: any) {
     const response = await apollo.query({
       query: gql(`
         query {
@@ -16,16 +16,17 @@ const actions = {
             time,
             category {
               title,
-              slug
             },
             coverUrl,
+            commentsCounter,
+            insertDate,
           }
         }
       `),
     });
-    commit("SET_LAST_VODS", response.data.vods);
+    context.commit("SET_LAST_VODS", response.data.vods);
   },
-  async getRandomVod({ commit }) {
+  async getRandomVod(context: any) {
     const response = await apollo.query({
       query: gql(`
         query {
@@ -36,17 +37,33 @@ const actions = {
         }
       `),
     });
-    commit("SET_RANDOM_VOD", response.data.vod);
+    context.commit("SET_RANDOM_VOD", response.data.vod);
+  },
+  async getCategories(context: any) {
+    const response = await apollo.query({
+      query: gql(`
+        query {
+          categories {
+            id,
+            title,
+          }
+        }
+      `),
+    });
+    context.commit("SET_CATEGORIES", response.data.categories);
   },
 };
 
 // mutations
 const mutations = {
-  SET_LAST_VODS(state, lastVods) {
+  SET_LAST_VODS(state: any, lastVods: any) {
     state.lastVods = lastVods;
   },
-  SET_RANDOM_VOD(state, vod) {
+  SET_RANDOM_VOD(state: any, vod: object) {
     state.randomVod = vod;
+  },
+  SET_CATEGORIES(state: any, categories: any) {
+    state.categories = categories;
   },
 };
 
@@ -54,6 +71,7 @@ const mutations = {
 const state = {
   lastVods: null,
   randomVod: null,
+  categories: null,
 };
 
 
