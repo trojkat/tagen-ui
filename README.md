@@ -1,24 +1,29 @@
-# tagen-ui
+# Tagen UI
 
-## Project setup
+Kod odpowiedzialny za wyświetlanie strony telewizji internetowej [tagen.tv](https://tagen.tv). Obecnie jedynie strona główna jest w całości generowania przez JavaScript. Trwa tranzycja pozostałych części serwisu.
+
+![tagen-homepage](docs/tagen-homepage.png)
+
+
+
+## Stos technologiczny:
+
+* [VueJS](https://vuejs.org/)
+* [Vuex](https://vuex.vuejs.org/)
+* [GraphQL](https://graphql.org/)
+* [Apollo Client](https://www.apollographql.com/docs/react/)
+
+
+
+## Środowisko developerskie
+
 ```
 yarn install
+vue ui -p 9000
 ```
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
 
-### Compiles and minifies for production
-```
-yarn build
-```
 
-### Lints and fixes files
-```
-yarn lint
-```
+## Pomoc
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+Pull requesty lub zgłoszenia błędów zawsze mile widziane :-)

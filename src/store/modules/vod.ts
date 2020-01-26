@@ -20,6 +20,7 @@ const actions = {
             coverUrl,
             commentsCounter,
             insertDate,
+            proOnly,
           }
         }
       `),
@@ -33,6 +34,7 @@ const actions = {
           vod {
             coverUrl,
             video,
+            proOnly,
           }
         }
       `),
@@ -52,6 +54,45 @@ const actions = {
     });
     context.commit("SET_CATEGORIES", response.data.categories);
   },
+  async getTopRated(context: any) {
+    const response = await apollo.query({
+      query: gql(`
+        query {
+          topRated {
+            title,
+            url,
+            insertDate,
+            proOnly,
+            coverUrl,
+            category {
+              title,
+            },
+            rating,
+          }
+        }
+      `),
+    });
+    context.commit("SET_TOP_RATED", response.data.topRated);
+  },
+  async getTopViewed(context: any) {
+    const response = await apollo.query({
+      query: gql(`
+        query {
+          topViewed {
+            title,
+            url,
+            insertDate,
+            proOnly,
+            coverUrl,
+            category {
+              title,
+            },
+          }
+        }
+      `),
+    });
+    context.commit("SET_TOP_VIEWED", response.data.topViewed);
+  },
 };
 
 // mutations
@@ -65,6 +106,12 @@ const mutations = {
   SET_CATEGORIES(state: any, categories: any) {
     state.categories = categories;
   },
+  SET_TOP_RATED(state: any, topRated: any) {
+    state.topRated = topRated;
+  },
+  SET_TOP_VIEWED(state: any, topViewed: any) {
+    state.topViewed = topViewed;
+  },
 };
 
 // initial state
@@ -72,6 +119,8 @@ const state = {
   lastVods: null,
   randomVod: null,
   categories: null,
+  topRated: null,
+  topViewed: null,
 };
 
 

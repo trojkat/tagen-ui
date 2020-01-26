@@ -25,13 +25,14 @@
         </div>
         <div>
           <h5>Online: {{ $store.state.user.onlineUsers.length }}</h5>
-          <div v-for="onlineUser in $store.state.user.onlineUsers" :key="onlineUser.username">
-            <img :src="`${$appConfig.tagenUrl}${onlineUser.avatar}`" :title="onlineUser.username" :alt="onlineUser.username" />&nbsp;
-          </div>
+          <span v-for="onlineUser in $store.state.user.onlineUsers" :key="onlineUser.username">
+            <a :href="`${$appConfig.tagenUrl}/u/${onlineUser.username}/`">
+              <img :src="`${$appConfig.staticUrl}${onlineUser.avatar}`" :title="onlineUser.username" :alt="onlineUser.username" />
+            </a>&nbsp;
+          </span>
         </div>
       </div>
 
-      <hr>
 
       <p class="uk-text-center">
         <a
@@ -62,7 +63,6 @@ export default {
   name: "Footer",
   async created() {
     await this.$store.dispatch("user/getOnlineUsers");
-    await this.$apollo.queries.user.startPolling(2000);
   },
 };
 </script>

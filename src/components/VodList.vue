@@ -6,7 +6,7 @@
     <div class="uk-clearfix">
       <div class="uk-child-width-1-2@s uk-child-width-1-3@m uk-child-width-1-4@l uk-grid-small" uk-height-match="target: > div > .uk-card > .uk-card-body" uk-grid>
         <div v-for="(vod, index) in vodList" :key="vod.title">
-          <VodCard :vod="vod" :cls="vodCardClass(index)" />
+          <VodCard :vod="vod" :cls="vodCardClass(index)" :position="position" :rating="rating" :index="index" />
         </div>
       </div>
     </div>
@@ -19,7 +19,7 @@ import VodCard from "@/components/VodCard.vue";
 
 export default {
   name: "VodList",
-  props: ["vodList", "title"],
+  props: ["vodList", "title", "position", "rating"],
   components: {
     VodCard,
   },

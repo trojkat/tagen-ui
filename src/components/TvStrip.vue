@@ -4,7 +4,7 @@
     <span uk-spinner="ratio: 3" v-if="!$store.state.vod.randomVod"></span>
     <video
       :src="`${$appConfig.streamUrl}/${$store.state.vod.randomVod.video}`"
-      :poster="`${$appConfig.tagenUrl}${$store.state.vod.randomVod.coverUrl}`"
+      :poster="`${$appConfig.staticUrl}${$store.state.vod.randomVod.coverUrl}`"
       class="uk-margin-auto"
       controls
       v-if="$store.state.vod.randomVod"
