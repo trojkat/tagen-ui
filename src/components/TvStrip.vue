@@ -22,10 +22,10 @@ export default {
     season: () => {
       const now = new Date();
       const year = now.getFullYear();
-      const springStart = new Date(year, 3, 20);
-      const summerStart = new Date(year, 6, 21);
-      const fallStart = new Date(year, 9, 22);
-      const winterStart = new Date(year, 12, 21);
+      const springStart = new Date(year, 2, 20);
+      const summerStart = new Date(year, 5, 21);
+      const fallStart = new Date(year, 8, 22);
+      const winterStart = new Date(year, 11, 21);
       if (now < springStart) {
         return "winter";
       }
