@@ -49,7 +49,6 @@ const state = {
   onlineUsers: Array,
 };
 
-
 export default {
   namespaced: true,
   state,

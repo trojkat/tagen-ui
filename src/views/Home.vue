@@ -13,9 +13,6 @@
 </template>
 
 <script>
-import gql from "graphql-tag";
-import { mapState } from "vuex";
-
 import CalligarisBook from "@/components/CalligarisBook.vue";
 import LastComments from "@/components/LastComments.vue";
 import Patronite from "@/components/Patronite.vue";

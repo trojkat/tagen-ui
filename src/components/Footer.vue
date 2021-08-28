@@ -33,7 +33,6 @@
         </div>
       </div>
 
-
       <p class="uk-text-center">
         <a
           href="https://www.facebook.com/tagen.tv"
@@ -66,7 +65,6 @@ export default {
   },
 };
 </script>
-
 
 <style lang="scss">
 @import "src/variables.scss";

@@ -123,7 +123,6 @@ const state = {
   topViewed: null,
 };
 
-
 export default {
   namespaced: true,
   state,

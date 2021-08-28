@@ -42,7 +42,6 @@ const state = {
   lastComments: Array,
 };
 
-
 export default {
   namespaced: true,
   state,
